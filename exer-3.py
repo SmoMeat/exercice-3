@@ -36,7 +36,6 @@ def find_pythagorean_triples_by_descending_while_loop(max: int) -> [tuple]:
 
     return pythagorean_triples
 
-
 def find_pythagorean_triples_by_ascending_for_loop(max: int) -> [tuple]:
     pythagorean_triples = []
 
@@ -65,23 +64,27 @@ def find_pythagorean_triples_by_descending_for_loop(max: int) -> [tuple]:
     
     return pythagorean_triples
 
+def find_armstrong_numbers():
+    armstrong_numbers = []
+
+    for number in range(100, 1000):
+        first_digit = int(str(number)[0])
+        second_digit = int(str(number)[1])
+        third_digit = int(str(number)[2])
+        if number == first_digit**3 + second_digit**3 + third_digit**3:
+            armstrong_numbers.append(number)
+
+    return armstrong_numbers
+
+
 
 if __name__ == '__main__':
     start = datetime.now()
-    my_list = []
 
-    pythagorean_triples = find_pythagorean_triples_by_descending_for_loop(100)
-    print(pythagorean_triples)
+    #pythagorean_triples = find_pythagorean_triples_by_descending_for_loop(100)
+    #print(pythagorean_triples)
+
+    armstrong_numbers = find_armstrong_numbers()
+    print(armstrong_numbers)
 
     print(datetime.now() - start)
-
-
-
-# def find_pythagorean_triples_by_ascending_for_loop(max: int):
-#     for b in range(1, max):
-#         for a in range(1, b):
-#             c = math.sqrt(a*a + b*b)
-#             if c % 1 == 0:
-#                 my_list.append((a, b, int(c)))
-    
-#     print(my_list)

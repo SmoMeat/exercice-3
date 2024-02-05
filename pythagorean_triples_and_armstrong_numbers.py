@@ -1,3 +1,15 @@
+"""pythagorean_triples_and_armstrong_numbers.py : Imprime les tiplets pythagoriciens et les nombres d'Armstrong
+
+Ce fichier permet d'imprimer à la console tous les triplets d'entiers pythagoriciens dont l'hypothénuse est d'une
+longeur égale ou inférieur à c=100. De plus, ce fichier imprime à la console les nombres d'Armstrong de trois
+chiffres, c'est-à-dire les nombres dont la somme de chacun des cubes de leurs chiffres vaut le nombre lui-memem.
+
+@Date: 3 février 2024
+@Author: Mathieu Ducharme
+@Contact: mathieu.ducharme@umontreal.ca
+@Matricule: 20297456
+"""
+
 from datetime import datetime
 import math
 

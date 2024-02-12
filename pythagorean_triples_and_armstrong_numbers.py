@@ -21,7 +21,7 @@ def find_pythagorean_triples_by_ascending_while_loop(max):
     Returns:
         pythagorean_triples (list): contient toutes les solutions demandées sous forme de 3-uplet
     """
-    pythagorean_triples = []
+    pythagorean_triples = [] # Liste vierge pour accueillir les solutions
     a = b = 1
 
     while a <= max-2:
@@ -46,7 +46,7 @@ def find_pythagorean_triples_by_descending_while_loop(max):
     Returns:
         pythagorean_triples (list): contient toutes les solutions demandées sous forme de 3-uplet
     """
-    pythagorean_triples = []
+    pythagorean_triples = [] # Liste vierge pour accueillir les solutions
     a = b = max
 
     while a > 2:
@@ -69,8 +69,8 @@ def find_pythagorean_triples_by_conditionned_while_loop(max):
     Returns:
         pythagorean_triples (list): contient toutes les solutions demandées sous forme de 3-uplet
     """
-    pythagorean_triples = []
-    a_below_max = b_below_max = True
+    pythagorean_triples = [] # Liste vierge pour accueillir les solutions
+    a_below_max = b_below_max = True # Condition des while loops
     a = b = 1
 
     while a_below_max:
@@ -78,7 +78,7 @@ def find_pythagorean_triples_by_conditionned_while_loop(max):
             c = sqrt(a*a + b*b)
             if c > max:
                 break
-            if c % 1 == 0:
+            if c % 1 == 0: # Si c est un entier
                 pythagorean_triples.append((a, b, int(c)))
             b += 1
             b_below_max = b <= max-1
@@ -98,7 +98,7 @@ def find_pythagorean_triples_by_for_loop(max):
     Returns:
         pythagorean_triples (list): contient toutes les solutions demandées sous forme de 3-uplet
     """
-    pythagorean_triples = []
+    pythagorean_triples = [] # Liste vierge pour accueillir les solutions
 
     for a in range(1, max-2):
         for b in range(a, max-1):
@@ -117,7 +117,7 @@ def find_armstrong_numbers():
         liste de float: une liste contenant des int de tous les nombres d'Armstrong à 3 chiffres.
     """
 
-    armstrong_numbers = []
+    armstrong_numbers = []  # Liste vierge pour accueillir les nombres d'Armstrong
 
     # Regarde si un nombre à 3 chiffres (de 100 à 999) est un nombre d'Armstrong
     for number in range(100, 1000):
@@ -129,6 +129,33 @@ def find_armstrong_numbers():
             armstrong_numbers.append(number)
 
     return armstrong_numbers
+
+# def find_armstrong_numbers(min_size, max_size = None):
+#     """Trouve tous les nombres d'Armstrong d'un certain nombre de le chiffre.
+
+#     Args:
+#         min_size (int): taille minimale (nbr de chiffres) des nombres d'Armstrong recherchés
+#         max_size (int): taille maximale (nbr de chiffres) des nombres d'Armstrong recherchés,
+#                         par défaut c'est la meme valeur que min_size
+#     Returns:
+#         armstrong_numbers (list): une liste contenant des int de tous les nombres d'Armstrong demandés.
+#     """
+    
+#     # S'assure que max_size à recu une valeur ou sinon assigne
+#     max_size = min_size if not max_size or max_size < min_size else max_size
+
+#     print(min_size, max_size)
+#     armstrong_numbers = []  # Liste vierge pour accueillir les nombres d'armstrong
+
+#     # Regarde si un nombre à 3 chiffres (de 100 à 999) est un nombre d'Armstrong
+#     for number in range(10**(min_size - 1), 10**max_size):
+#         sum = 0
+#         for digit in str(number):
+#             sum += int(digit)**len(str(number))
+#         if number == sum:
+#             armstrong_numbers.append(number)
+
+#     return armstrong_numbers
 
 
 # Le programme est lancé lorsque le fichier est ouvert par lui-meme

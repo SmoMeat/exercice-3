@@ -53,7 +53,7 @@ def find_pythagorean_triples_by_descending_while_loop(max):
         while b > 1:
             c = sqrt(a*a + b*b)
             if c % 1 == 0 and c <= max:
-                pythagorean_triples.append((a, b, int(c)))
+                pythagorean_triples.append((b, a, int(c)))
             b -= 1
         a -= 1
         b = a
@@ -130,45 +130,40 @@ def find_armstrong_numbers():
 
     return armstrong_numbers
 
-# def find_armstrong_numbers(min_size, max_size = None):
-#     """Trouve tous les nombres d'Armstrong d'un certain nombre de le chiffre.
-
-#     Args:
-#         min_size (int): taille minimale (nbr de chiffres) des nombres d'Armstrong recherchés
-#         max_size (int): taille maximale (nbr de chiffres) des nombres d'Armstrong recherchés,
-#                         par défaut c'est la meme valeur que min_size
-#     Returns:
-#         armstrong_numbers (list): une liste contenant des int de tous les nombres d'Armstrong demandés.
-#     """
-    
-#     # S'assure que max_size à recu une valeur ou sinon assigne
-#     max_size = min_size if not max_size or max_size < min_size else max_size
-
-#     print(min_size, max_size)
-#     armstrong_numbers = []  # Liste vierge pour accueillir les nombres d'armstrong
-
-#     # Regarde si un nombre à 3 chiffres (de 100 à 999) est un nombre d'Armstrong
-#     for number in range(10**(min_size - 1), 10**max_size):
-#         sum = 0
-#         for digit in str(number):
-#             sum += int(digit)**len(str(number))
-#         if number == sum:
-#             armstrong_numbers.append(number)
-
-#     return armstrong_numbers
-
+# # def debug(lists):
+# #     """
+# #     Permet de tester si toutes les méthodes pour trouver les triplets pythagoriciens donnent le meme résultat.
+# #     À utiliser dans un but de debuggage, fonctionne seulement avec un vrai interpreteur python.
+# #     """
+# #     lists[0].sort()
+# #     for i, list in enumerate(lists[1:]):
+# #         list.sort()
+# #         if lists[0] == list:
+# #             print('La', str(i+2) + 'ᵉ loop donne le meme résultat que la première !')
+# #         else:
+# #             print('Le résultat de la première loop et de la', str(i+2) + 'ᵉ diffèrent !')
 
 # Le programme est lancé lorsque le fichier est ouvert par lui-meme
 if __name__ == '__main__':
-    pythagorean_triples = [
+
+    # Transforme une list en string en retirant les crochets '[]'
+    stringied_list = lambda _list: ", ".join(map(str, _list))
+
+    # Liste contenant les solutions des quatre méthodes
+    pythagorean_triples_lists = [
         find_pythagorean_triples_by_ascending_while_loop(100),
         find_pythagorean_triples_by_descending_while_loop(100),
         find_pythagorean_triples_by_conditionned_while_loop(100),
         find_pythagorean_triples_by_for_loop(100)
     ]
 
-    x = [print(str(len(pythagorean_triples[i])) + '\n') for i in range(4)]
-    print(pythagorean_triples)
+    # Imprime à la console les triplets pythagoriciens
+    print("Liste de triplets pythagoriciens (while-loop croissante):", stringied_list(pythagorean_triples_lists[0]), "\n")
+    print("Liste de triplets pythagoriciens (while-loop décroissante):", stringied_list(pythagorean_triples_lists[1]), "\n")
+    print("Liste de triplets pythagoriciens (while-loop conditionnée):", stringied_list(pythagorean_triples_lists[2]), "\n")
+    print("Liste de triplets pythagoriciens (for-loop):", stringied_list(pythagorean_triples_lists[3]), "\n")
 
-    armstrong_numbers = find_armstrong_numbers()
-    print(armstrong_numbers)
+    # debug(pythagorean_triples_lists)
+
+    # Imprime à la console les nombres d'Armstrong
+    print("Les nombres d'Armstrong à 3 chiffres:", stringied_list(find_armstrong_numbers()))
